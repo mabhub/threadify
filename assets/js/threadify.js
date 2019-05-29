@@ -49,8 +49,10 @@ function splitter(string) {
     }
 
     for (i = 0; i < realTweets; i++) {
-        $("#text-area-results").append('<textarea rows="4" cols="30" id="text_result_' + i + '" class="form-control result_textarea">' + parts_text[i] + '</textarea>' + 
-        '<button class="btn btn-dark bt_result" type="submit" id="bt-copy-' + i + '" onclick="copy(' + i + ')"> Copy text <i class="fa fa-copy"></i></button>')
+        const $textarea = $('<textarea rows="4" cols="30" id="text_result_' + i + '" class="form-control result_textarea" />')
+        const $copyButton = $('<button class="btn btn-dark bt_result" type="submit" id="bt-copy-' + i + '" onclick="copy(' + i + ')"> Copy text <i class="fa fa-copy"></i></button>')
+        $textarea.append(parts_text[i])
+        $("#text-area-results").append($textarea, $copyButton)
     }
     // $("#text_result_1").val( parts_text[0] )
 
