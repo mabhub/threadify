@@ -48,12 +48,15 @@ function splitter(string) {
         x += 280
     }
 
+    const $wrapper = $('<div />');
     for (i = 0; i < realTweets; i++) {
         const $textarea = $('<textarea rows="4" cols="30" id="text_result_' + i + '" class="form-control result_textarea" />')
         const $copyButton = $('<button class="btn btn-dark bt_result" type="submit" id="bt-copy-' + i + '" onclick="copy(' + i + ')"> Copy text <i class="fa fa-copy"></i></button>')
         $textarea.append(parts_text[i])
-        $("#text-area-results").append($textarea, $copyButton)
+        $wrapper.append($textarea, $copyButton)
     }
+    $("#text-area-results").append($wrapper)
+
     // $("#text_result_1").val( parts_text[0] )
 
     console.log(parts_text)
